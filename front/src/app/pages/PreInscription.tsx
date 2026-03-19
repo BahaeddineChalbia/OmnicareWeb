@@ -49,11 +49,11 @@ export function PreInscription() {
       return;
     }
 
-    // Captcha validation - disabled for testing
-    // if (!captchaToken) {
-    //   toast.error('Veuillez vérifier que vous n\'êtes pas un robot');
-    //   return;
-    // }
+    // Captcha validation
+    if (!captchaToken) {
+      toast.error('Veuillez vérifier que vous n\'êtes pas un robot');
+      return;
+    }
 
     // Submit
     try {

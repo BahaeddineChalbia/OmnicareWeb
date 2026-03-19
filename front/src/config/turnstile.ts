@@ -18,7 +18,9 @@
  * mais la clé secrète doit rester sur le serveur.
  */
 
-export const TURNSTILE_SITE_KEY = '1x00000000000000000000AA'; // Clé de test qui réussit toujours
+// Use test key for localhost development, production key for deployment
+export const TURNSTILE_SITE_KEY = '1x00000000000000000000AA'; // Test key (always passes)
+// Production key: 0x4AAAAAACtXYK5ypU3kp-JP (use when deploying)
 
 /**
  * Options de configuration pour le widget Turnstile

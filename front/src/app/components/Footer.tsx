@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import logoImage from '../../assets/8429f9ce5676cf5e52599b3c33bca853bb7b5679.png';
+import logoImage from '../../assets/app_logo.png';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -100,9 +100,14 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/70 text-sm">
-              © {currentYear} OmniCare. Tous droits réservés.
-            </p>
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <p className="text-white/70 text-sm">
+                © {currentYear} OmniCare. Tous droits réservés.
+              </p>
+              <p className="text-white/50 text-xs">
+                Powered by OmniLinks
+              </p>
+            </div>
             <div className="flex gap-6">
               <Link to="#" className="text-white/70 hover:text-white transition-colors text-sm">
                 Confidentialité
