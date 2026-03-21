@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import {
   TrendingUp,
   Users,
@@ -15,71 +16,73 @@ import {
 } from 'lucide-react';
 
 export function Professionals() {
+  const { t } = useTranslation();
+  
   const benefits = [
     {
       icon: TrendingUp,
-      title: 'Développez votre patientèle',
-      description: 'Accédez à une base de patients élargie en Tunisie et développez votre activité.',
+      title: t('professionals.benefits.patients.title'),
+      description: t('professionals.benefits.patients.description'),
     },
     {
       icon: Clock,
-      title: 'Gagnez du temps',
-      description: 'Automatisez la gestion de vos rendez-vous et optimisez votre planning.',
+      title: t('professionals.benefits.flexibility.title'),
+      description: t('professionals.benefits.flexibility.description'),
     },
     {
       icon: Shield,
-      title: 'Plateforme sécurisée',
-      description: 'Données médicales protégées avec chiffrement et conformité aux normes.',
+      title: t('home.features.secure.title'),
+      description: t('home.features.secure.description'),
     },
     {
       icon: Smartphone,
-      title: 'Outils de téléconsultation',
-      description: 'Consultez vos patients à distance avec des outils vidéo de qualité professionnelle.',
+      title: t('features.videoConsultation.title'),
+      description: t('features.videoConsultation.description'),
     },
     {
       icon: CreditCard,
-      title: 'Paiements simplifiés',
-      description: 'Recevez vos paiements de manière sécurisée et traçable.',
+      title: t('features.payment.title'),
+      description: t('features.payment.description'),
     },
     {
       icon: BarChart3,
-      title: 'Statistiques détaillées',
-      description: 'Suivez votre activité avec des tableaux de bord et des rapports personnalisés.',
+      title: t('professionals.benefits.tools.title'),
+      description: t('professionals.benefits.tools.description'),
     },
   ];
 
   const steps = [
     {
       number: '01',
-      title: 'Pré-inscription',
-      description: 'Remplissez le formulaire de pré-inscription en quelques minutes.',
+      title: t('professionals.howItWorks.step1.title'),
+      description: t('professionals.howItWorks.step1.description'),
       icon: FileText,
     },
     {
       number: '02',
-      title: 'Vérification',
-      description: 'Notre équipe vérifie vos diplômes et certifications professionnelles.',
+      title: t('professionals.howItWorks.step2.title'),
+      description: t('professionals.howItWorks.step2.description'),
       icon: CheckCircle,
     },
     {
       number: '03',
-      title: 'Configuration',
-      description: 'Créez votre profil professionnel et définissez vos disponibilités.',
+      title: t('professionals.howItWorks.step3.title'),
+      description: t('professionals.howItWorks.step3.description'),
       icon: Calendar,
     },
     {
       number: '04',
-      title: 'Lancement',
-      description: 'Commencez à recevoir des demandes de consultation de patients.',
+      title: t('professionals.howItWorks.step4.title'),
+      description: t('professionals.howItWorks.step4.description'),
       icon: Users,
     },
   ];
 
   const professions = [
-    { emoji: '🩺', label: 'Médecin', description: 'Toutes spécialités médicales' },
-    { emoji: '💉', label: 'Infirmier(e)', description: 'Soins à domicile et téléconsultation' },
-    { emoji: '🧠', label: 'Psychologue', description: 'Thérapie en ligne et suivi psychologique' },
-    { emoji: '🦴', label: 'Kiné', description: 'Rééducation et conseils à distance' },
+    { emoji: '🩺', label: t('preInscription.doctor'), description: t('professionals.professions.doctor') },
+    { emoji: '💉', label: t('preInscription.nurse'), description: t('professionals.professions.nurse') },
+    { emoji: '🧠', label: t('preInscription.psychologist'), description: t('professionals.professions.psychologist') },
+    { emoji: '🦴', label: t('preInscription.physiotherapist'), description: t('professionals.professions.physiotherapist') },
   ];
 
   return (
@@ -94,18 +97,17 @@ export function Professionals() {
             className="text-center mb-12"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-              Rejoignez OmniCare
+              {t('professionals.hero.title')}
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-              Intégrez la première plateforme tunisienne de télémédecine et développez votre pratique 
-              avec des outils modernes et performants.
+              {t('professionals.hero.subtitle')}
             </p>
             <Link
               to="/pre-inscription"
               className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#1FBF9A]/30 hover:-translate-y-0.5"
               style={{ minWidth: '44px', minHeight: '44px' }}
             >
-              Pré-inscrivez-vous maintenant
+              {t('nav.preRegister')}
             </Link>
           </motion.div>
 
@@ -130,10 +132,10 @@ export function Professionals() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-4">
-              Comment rejoindre la plateforme ?
+              {t('professionals.howItWorks.title')}
             </h2>
             <p className="text-lg text-[#718096] max-w-2xl mx-auto">
-              Un processus simple et rapide en 4 étapes
+              {t('home.hero.subtitle')}
             </p>
           </div>
 
@@ -171,27 +173,27 @@ export function Professionals() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-4">
-              Questions fréquentes
+              {t('professionals.faq.title')}
             </h2>
           </div>
 
           <div className="space-y-4">
             {[
               {
-                q: 'Quels sont les documents nécessaires pour l\'inscription ?',
-                a: 'Vous aurez besoin de votre diplôme, carte professionnelle, et pièce d\'identité. Ces documents seront vérifiés lors du processus d\'intégration.',
+                q: t('professionals.faq.q1'),
+                a: t('professionals.faq.a1'),
               },
               {
-                q: 'Y a-t-il des frais d\'inscription ?',
-                a: 'Les tarifs seront communiqués lors de l\'ouverture officielle des inscriptions. La pré-inscription est gratuite et sans engagement.',
+                q: t('professionals.faq.q2'),
+                a: t('professionals.faq.a2'),
               },
               {
-                q: 'Comment sont fixés les tarifs des consultations ?',
-                a: 'Vous définissez vous-même vos tarifs de consultation. OmniCare prélève une commission sur chaque consultation réalisée via la plateforme.',
+                q: t('professionals.faq.q3'),
+                a: t('professionals.faq.a3'),
               },
               {
-                q: 'Puis-je gérer mon emploi du temps librement ?',
-                a: 'Absolument. Vous contrôlez entièrement vos créneaux de disponibilité et pouvez les modifier à tout moment.',
+                q: t('professionals.faq.q4'),
+                a: t('professionals.faq.a4'),
               },
             ].map((faq, idx) => (
               <motion.div
@@ -214,10 +216,10 @@ export function Professionals() {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0F6F73] via-[#1FBF9A] to-[#6BE3B2]">
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Prêt à transformer votre pratique ?
+            {t('professionals.cta.title')}
           </h2>
           <p className="text-xl mb-8 text-white/90 leading-relaxed">
-            Rejoignez OmniCare dès aujourd'hui et faites partie de la révolution de la santé en Tunisie.
+            {t('home.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -225,14 +227,14 @@ export function Professionals() {
               className="inline-block px-8 py-4 rounded-xl bg-white text-[#0F6F73] font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
               style={{ minWidth: '44px', minHeight: '44px' }}
             >
-              Pré-inscription professionnelle
+              {t('nav.preRegister')}
             </Link>
             <Link
               to="/contact"
               className="inline-block px-8 py-4 rounded-xl border-2 border-white text-white font-semibold transition-all duration-300 hover:bg-white hover:text-[#0F6F73]"
               style={{ minWidth: '44px', minHeight: '44px' }}
             >
-              Nous contacter
+              {t('nav.contact')}
             </Link>
           </div>
         </div>

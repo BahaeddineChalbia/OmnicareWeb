@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import logoImage from '../../assets/app_logo.png';
+import { LanguageSwitcher } from '../../components/LanguageSwitcher';
 
 export function Navbar() {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -22,11 +25,11 @@ export function Navbar() {
   }, [location]);
 
   const navLinks = [
-    { href: '/', label: 'Accueil' },
-    { href: '/fonctionnalites', label: 'Fonctionnalités' },
-    { href: '/professionnels', label: 'Professionnels' },
-    { href: '/a-propos', label: 'À propos' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/', label: t('nav.home') },
+    { href: '/fonctionnalites', label: t('nav.features') },
+    { href: '/professionnels', label: t('nav.professionals') },
+    { href: '/a-propos', label: t('nav.about') },
+    { href: '/contact', label: t('nav.contact') },
   ];
 
   return (
@@ -48,7 +51,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -62,6 +65,7 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <LanguageSwitcher />
           </div>
 
           {/* CTA Button */}
@@ -71,7 +75,7 @@ export function Navbar() {
               className="inline-block px-6 py-3 rounded-xl bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#1FBF9A]/30 hover:-translate-y-0.5"
               style={{ minWidth: '44px', minHeight: '44px' }}
             >
-              Pré-rejoindre
+              {t('nav.preRegister')}
             </Link>
           </div>
 
@@ -115,7 +119,7 @@ export function Navbar() {
                 to="/pre-inscription"
                 className="block px-4 py-3 rounded-xl bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] text-white font-semibold text-center"
               >
-                Pré-rejoindre
+                {t('nav.preRegister')}
               </Link>
             </div>
           </motion.div>

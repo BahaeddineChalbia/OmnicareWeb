@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from 'motion/react';
 import { Lock, User, AlertCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 
 export function Login() {
+  const { t } = useTranslation();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -19,7 +21,7 @@ export function Login() {
     if (success) {
       navigate('/admin');
     } else {
-      setError('Identifiant ou mot de passe incorrect');
+      setError(t('login.error'));
     }
   };
 
@@ -38,10 +40,10 @@ export function Login() {
               <Lock className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-3xl font-bold text-[#1A202C] mb-2">
-              Connexion Admin
+              {t('login.title')}
             </h1>
             <p className="text-[#718096]">
-              Accédez au panneau d'administration OmniCare
+              {t('login.subtitle')}
             </p>
           </div>
 
@@ -62,7 +64,7 @@ export function Login() {
             {/* Username */}
             <div>
               <label htmlFor="username" className="block text-sm font-semibold text-[#1A202C] mb-2">
-                Nom d'utilisateur
+                {t('login.username')}
               </label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#718096]" />
@@ -81,7 +83,7 @@ export function Login() {
             {/* Password */}
             <div>
               <label htmlFor="password" className="block text-sm font-semibold text-[#1A202C] mb-2">
-                Mot de passe
+                {t('login.password')}
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#718096]" />
@@ -103,7 +105,7 @@ export function Login() {
               className="w-full px-8 py-4 rounded-xl bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] text-white font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
               style={{ minHeight: '44px' }}
             >
-              Se connecter
+              {t('login.signIn')}
             </button>
           </form>
 

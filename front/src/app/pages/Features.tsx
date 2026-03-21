@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import {
@@ -53,91 +54,92 @@ function PrevArrow(props: any) {
 }
 
 export function Features() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'patients' | 'professionals'>('professionals');
 
   const allFeatures = [
     {
       icon: Video,
-      title: 'Consultations vidéo HD',
-      description: 'Rencontrez vos professionnels de santé en face-à-face virtuel avec une qualité vidéo haute définition.',
+      title: t('features.videoConsultation.title'),
+      description: t('features.videoConsultation.description'),
       category: 'patient',
     },
     {
       icon: Calendar,
-      title: 'Réservation en ligne',
-      description: 'Prenez rendez-vous 24h/24, 7j/7 selon vos disponibilités et celles du professionnel.',
+      title: t('features.appointment.title'),
+      description: t('features.appointment.description'),
       category: 'patient',
     },
     {
       icon: FileText,
-      title: 'Dossier médical numérique',
-      description: 'Accédez à votre historique de consultations et documents médicaux centralisés.',
+      title: t('features.medicalRecords.title'),
+      description: t('features.medicalRecords.description'),
       category: 'patient',
     },
     {
       icon: Shield,
-      title: 'Sécurité des données',
-      description: 'Vos informations médicales sont chiffrées et protégées selon les normes les plus strictes.',
+      title: t('home.features.secure.title'),
+      description: t('home.features.secure.description'),
       category: 'both',
     },
     {
       icon: Clock,
-      title: 'Disponibilité étendue',
-      description: 'Des professionnels disponibles tôt le matin, le soir et même le week-end.',
+      title: t('home.stats.availability'),
+      description: t('home.features.professionals.description'),
       category: 'patient',
     },
     {
       icon: CreditCard,
-      title: 'Paiement sécurisé',
-      description: 'Réglez vos consultations en ligne de manière sécurisée avec plusieurs moyens de paiement.',
+      title: t('features.payment.title'),
+      description: t('features.payment.description'),
       category: 'both',
     },
     {
       icon: Bell,
-      title: 'Rappels et notifications',
-      description: 'Recevez des rappels pour vos rendez-vous, prises de médicaments et suivis médicaux.',
+      title: t('features.notifications.title'),
+      description: t('features.notifications.description'),
       category: 'patient',
     },
     {
       icon: Heart,
-      title: 'Suivi personnalisé',
-      description: 'Bénéficiez d\'un suivi médical adapté à vos besoins et votre historique de santé.',
+      title: t('home.features.consultation.title'),
+      description: t('home.features.consultation.description'),
       category: 'patient',
     },
     {
       icon: Users,
-      title: 'Gestion multi-profils',
-      description: 'Gérez les rendez-vous de toute votre famille depuis un seul compte.',
+      title: t('professionals.benefits.patients.title'),
+      description: t('professionals.benefits.patients.description'),
       category: 'patient',
     },
     {
       icon: Smartphone,
-      title: 'Application mobile',
-      description: 'Accédez à tous les services depuis votre smartphone (bientôt disponible).',
+      title: t('home.mobileApp.title'),
+      description: t('home.mobileApp.description'),
       category: 'both',
     },
     {
       icon: Activity,
-      title: 'Tableau de bord professionnel',
-      description: 'Suivez vos consultations, revenus et statistiques d\'activité en temps réel.',
+      title: t('professionals.benefits.tools.title'),
+      description: t('professionals.benefits.tools.description'),
       category: 'professional',
     },
     {
       icon: Lock,
-      title: 'Profils vérifiés',
-      description: 'Tous les professionnels sont vérifiés avec diplômes et certifications validés.',
+      title: t('home.features.professionals.title'),
+      description: t('home.features.professionals.description'),
       category: 'both',
     },
     {
       icon: CheckCircle,
-      title: 'Gestion de planning',
-      description: 'Définissez vos créneaux de disponibilité et gérez votre emploi du temps facilement.',
+      title: t('professionals.benefits.flexibility.title'),
+      description: t('professionals.benefits.flexibility.description'),
       category: 'professional',
     },
     {
       icon: Zap,
-      title: 'Consultation express',
-      description: 'Option de consultation rapide pour les cas urgents avec professionnels disponibles.',
+      title: t('home.features.appointment.title'),
+      description: t('home.features.appointment.description'),
       category: 'patient',
     },
   ];
@@ -179,12 +181,10 @@ export function Features() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
-              Toutes les fonctionnalités <br className="hidden sm:block" />
-              pour votre santé
+              {t('features.hero.title')}
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Découvrez une plateforme complète conçue pour faciliter l'accès aux soins 
-              et améliorer la relation entre patients et professionnels de santé.
+              {t('features.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -200,10 +200,10 @@ export function Features() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-4">
-                Une plateforme complète
+                {t('home.features.subtitle')}
               </h2>
               <p className="text-base sm:text-lg text-[#718096] max-w-2xl mx-auto mb-4 px-4">
-                Faites glisser pour découvrir toutes nos fonctionnalités
+                {t('features.hero.subtitle')}
               </p>
             </motion.div>
           </div>
@@ -265,7 +265,7 @@ export function Features() {
                 style={{ minWidth: '44px', minHeight: '44px' }}
               >
                 <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span>Pour les patients</span>
+                <span>{t('features.forPatients')}</span>
               </button>
               <button
                 onClick={() => setActiveTab('professionals')}
@@ -277,7 +277,7 @@ export function Features() {
                 style={{ minWidth: '44px', minHeight: '44px' }}
               >
                 <Users className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span>Pour les professionnels</span>
+                <span>{t('footer.professionalsSection')}</span>
               </button>
             </div>
           </div>
@@ -311,7 +311,7 @@ export function Features() {
                       animate={{ opacity: 1, y: 0 }}
                       className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4"
                     >
-                      Gérez votre santé facilement
+                      {t('home.features.subtitle')}
                     </motion.h2>
                     <motion.p
                       initial={{ opacity: 0, y: 20 }}
@@ -319,7 +319,7 @@ export function Features() {
                       transition={{ delay: 0.1 }}
                       className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl mx-auto"
                     >
-                      Accédez à des soins de qualité depuis chez vous avec une plateforme intuitive et sécurisée.
+                      {t('home.hero.subtitle')}
                     </motion.p>
                   </div>
 
@@ -391,7 +391,7 @@ export function Features() {
                   
                   {/* Scroll Indicator - Mobile Only */}
                   <div className="lg:hidden text-center mt-4">
-                    <p className="text-sm text-white/70">← Faites défiler pour voir plus →</p>
+                    <p className="text-sm text-white/70">{t('features.hero.subtitle')}</p>
                   </div>
                 </div>
               </div>
@@ -416,7 +416,7 @@ export function Features() {
                       animate={{ opacity: 1, y: 0 }}
                       className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4"
                     >
-                      Développez votre pratique
+                      {t('professionals.hero.subtitle')}
                     </motion.h2>
                     <motion.p
                       initial={{ opacity: 0, y: 20 }}
@@ -424,7 +424,7 @@ export function Features() {
                       transition={{ delay: 0.1 }}
                       className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl mx-auto"
                     >
-                      Des outils professionnels pour optimiser vos consultations et améliorer le suivi de vos patients.
+                      {t('professionals.benefits.tools.description')}
                     </motion.p>
                   </div>
 
@@ -496,7 +496,7 @@ export function Features() {
                   
                   {/* Scroll Indicator - Mobile Only */}
                   <div className="lg:hidden text-center mt-4">
-                    <p className="text-sm text-white/70">← Faites défiler pour voir plus →</p>
+                    <p className="text-sm text-white/70">{t('features.hero.subtitle')}</p>
                   </div>
                 </div>
               </div>
@@ -509,10 +509,10 @@ export function Features() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F4F5F7]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-6">
-            Prêt à découvrir OmniCare ?
+            {t('home.cta.title')}
           </h2>
           <p className="text-xl text-[#718096] mb-8 leading-relaxed">
-            Rejoignez notre plateforme et profitez de toutes ces fonctionnalités dès aujourd'hui.
+            {t('home.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -520,14 +520,14 @@ export function Features() {
               className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#1FBF9A]/30 hover:-translate-y-0.5"
               style={{ minWidth: '44px', minHeight: '44px' }}
             >
-              Pré-rejoindre maintenant
+              {t('nav.preRegister')}
             </a>
             <a
               href="/contact"
               className="inline-block px-8 py-4 rounded-xl border-2 border-[#1FBF9A] text-[#1FBF9A] font-semibold transition-all duration-300 hover:bg-[#1FBF9A] hover:text-white"
               style={{ minWidth: '44px', minHeight: '44px' }}
             >
-              Nous contacter
+              {t('nav.contact')}
             </a>
           </div>
         </div>

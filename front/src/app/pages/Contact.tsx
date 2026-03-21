@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, MessageSquare, Send, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import { Turnstile } from '@marsidev/react-turnstile';
 import { TURNSTILE_SITE_KEY } from '../../config/turnstile';
 import { contactAPI } from '../../services/api';
 
 export function Contact() {
+  const { t } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -19,19 +21,19 @@ export function Contact() {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
-      toast.error('Veuillez remplir tous les champs');
+      toast.error(t('contact.fillAll'));
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      toast.error('Veuillez entrer une adresse e-mail valide');
+      toast.error(t('contact.invalidEmail'));
       return;
     }
 
     // Captcha validation
     if (!captchaToken) {
-      toast.error('Veuillez vérifier que vous n\'êtes pas un robot');
+      toast.error(t('contact.captchaError'));
       return;
     }
 
@@ -42,9 +44,9 @@ export function Contact() {
         message: formData.message,
       });
       setIsSubmitted(true);
-      toast.success('Message envoyé avec succès !');
+      toast.success(t('contact.success'));
     } catch (error) {
-      toast.error('Erreur lors de l\'envoi. Veuillez réessayer.');
+      toast.error(t('contact.error'));
       console.error('Contact submission error:', error);
     }
   };
@@ -59,19 +61,19 @@ export function Contact() {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'E-mail',
+      title: t('contact.email'),
       content: 'contact@omnicare.tn',
       href: 'mailto:contact@omnicare.tn',
     },
     {
       icon: Phone,
-      title: 'Téléphone',
+      title: t('contact.phone'),
       content: '+216 12 345 678',
       href: 'tel:+21612345678',
     },
     {
       icon: MapPin,
-      title: 'Localisation',
+      title: t('contact.location'),
       content: 'Tunis, Tunisie',
       href: null,
     },
@@ -90,11 +92,10 @@ export function Contact() {
             <CheckCircle className="w-12 h-12 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-[#1A202C] mb-4">
-            Message envoyé !
+            {t('contact.success')}
           </h1>
           <p className="text-lg text-[#718096] mb-8 leading-relaxed">
-            Merci de nous avoir contactés. Notre équipe vous répondra dans les plus brefs délais 
-            à l'adresse e-mail que vous avez fournie.
+            {t('contact.successMessage')}
           </p>
           <a
             href="/contact"
@@ -106,7 +107,7 @@ export function Contact() {
             className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#1FBF9A]/30 hover:-translate-y-0.5"
             style={{ minWidth: '44px', minHeight: '44px' }}
           >
-            Envoyer un autre message
+            {t('contact.sendAnother')}
           </a>
         </motion.div>
       </div>
@@ -124,10 +125,10 @@ export function Contact() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
-              Contactez-nous
+              {t('contact.title')}
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Une question ? Une suggestion ? Notre équipe est là pour vous écouter et vous accompagner.
+              {t('contact.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -141,11 +142,10 @@ export function Contact() {
             <div className="lg:col-span-1 space-y-6">
               <div>
                 <h2 className="text-2xl font-bold text-[#1A202C] mb-4">
-                  Informations de contact
+                  {t('contact.contactInfo')}
                 </h2>
                 <p className="text-[#718096] leading-relaxed mb-6">
-                  N'hésitez pas à nous contacter par l'un des moyens suivants. 
-                  Nous vous répondrons dans les meilleurs délais.
+                  {t('contact.contactInfoDesc')}
                 </p>
               </div>
 
@@ -181,10 +181,9 @@ export function Contact() {
               {/* Additional Info */}
               <div className="bg-gradient-to-r from-[#1FBF9A]/10 to-[#6BE3B2]/10 border border-[#1FBF9A]/20 rounded-2xl p-6">
                 <MessageSquare className="w-8 h-8 text-[#1FBF9A] mb-3" />
-                <h3 className="font-bold text-[#1A202C] mb-2">Support client</h3>
+                <h3 className="font-bold text-[#1A202C] mb-2">{t('contact.customerSupport')}</h3>
                 <p className="text-sm text-[#718096] leading-relaxed">
-                  Notre équipe de support est disponible du lundi au vendredi de 9h à 18h 
-                  pour répondre à toutes vos questions.
+                  {t('contact.supportHours')}
                 </p>
               </div>
             </div>
@@ -199,10 +198,10 @@ export function Contact() {
               >
                 <div className="mb-8">
                   <h2 className="text-3xl font-bold text-[#1A202C] mb-3">
-                    Envoyez-nous un message
+                    {t('contact.title')}
                   </h2>
                   <p className="text-[#718096] leading-relaxed">
-                    Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.
+                    {t('contact.formSubtitle')}
                   </p>
                 </div>
 
@@ -210,7 +209,7 @@ export function Contact() {
                   {/* Name */}
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-[#1A202C] mb-2">
-                      Nom complet <span className="text-[#EF4444]">*</span>
+                      {t('contact.name')} <span className="text-[#EF4444]">*</span>
                     </label>
                     <input
                       type="text"
@@ -227,7 +226,7 @@ export function Contact() {
                   {/* Email */}
                   <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-[#1A202C] mb-2">
-                      Adresse e-mail <span className="text-[#EF4444]">*</span>
+                      {t('contact.email')} <span className="text-[#EF4444]">*</span>
                     </label>
                     <input
                       type="email"
@@ -244,7 +243,7 @@ export function Contact() {
                   {/* Message */}
                   <div>
                     <label htmlFor="message" className="block text-sm font-semibold text-[#1A202C] mb-2">
-                      Message <span className="text-[#EF4444]">*</span>
+                      {t('contact.message')} <span className="text-[#EF4444]">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -279,7 +278,7 @@ export function Contact() {
                     style={{ minHeight: '44px' }}
                   >
                     <Send className="w-5 h-5" />
-                    <span>Envoyer le message</span>
+                    <span>{t('contact.send')}</span>
                   </button>
                 </form>
               </motion.div>

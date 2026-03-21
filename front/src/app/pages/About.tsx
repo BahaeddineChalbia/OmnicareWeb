@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTranslation } from 'react-i18next';
 import { Target, Heart, Shield, Users, Award, Lightbulb } from "lucide-react";
 import missionImage1 from "../../assets/ad71fe2685cc6f3070124bbb1ba3efeb70ac4bc6.png";
 import missionImage2 from "../../assets/0cd048fb94ea28e94ecac46764d15421cd977e95.png";
@@ -6,61 +7,55 @@ import missionImage3 from "../../assets/81eae92ebae58edbe4ce3e4fcee58abce8c8c7f4
 import tunisiaImage from "../../assets/09960f750fd98ca10af332aa627f0667d9bda569.png";
 
 export function About() {
+  const { t } = useTranslation();
+  
   const values = [
     {
       icon: Heart,
-      title: "Accessibilité",
-      description:
-        "Rendre les soins de santé accessibles à tous les Tunisiens, partout et à tout moment.",
+      title: t('about.values.accessibility.title'),
+      description: t('about.values.accessibility.description'),
     },
     {
       icon: Shield,
-      title: "Sécurité",
-      description:
-        "Protéger les données médicales avec les plus hauts standards de sécurité et de confidentialité.",
+      title: t('about.values.trust.title'),
+      description: t('about.values.trust.description'),
     },
     {
       icon: Users,
-      title: "Collaboration",
-      description:
-        "Faciliter la collaboration entre patients et professionnels de santé pour de meilleurs résultats.",
+      title: t('professionals.benefits.patients.title'),
+      description: t('professionals.benefits.patients.description'),
     },
     {
       icon: Lightbulb,
-      title: "Innovation",
-      description:
-        "Innover constamment pour améliorer l'expérience de soins et la qualité du service.",
+      title: t('about.values.innovation.title'),
+      description: t('about.values.innovation.description'),
     },
     {
       icon: Award,
-      title: "Excellence",
-      description:
-        "Garantir un service de qualité avec des professionnels vérifiés et qualifiés.",
+      title: t('about.values.quality.title'),
+      description: t('about.values.quality.description'),
     },
     {
       icon: Target,
-      title: "Impact",
-      description:
-        "Transformer le système de santé tunisien pour le rendre plus efficient et moderne.",
+      title: t('home.features.subtitle'),
+      description: t('about.mission.description'),
     },
   ];
 
   const trustBadges = [
     {
-      title: "Professionnels vérifiés",
-      description:
-        "Tous nos professionnels sont vérifiés avec diplômes validés",
+      title: t('home.features.professionals.title'),
+      description: t('home.features.professionals.description'),
       icon: Award,
     },
     {
-      title: "Données sécurisées",
-      description:
-        "Chiffrement de bout en bout et conformité aux normes internationales",
+      title: t('home.features.secure.title'),
+      description: t('home.features.secure.description'),
       icon: Shield,
     },
     {
-      title: "Disponible 24/7",
-      description: "Accès aux soins à toute heure, tous les jours de l'année",
+      title: t('home.stats.availability'),
+      description: t('home.hero.subtitle'),
       icon: Users,
     },
   ];
@@ -76,12 +71,10 @@ export function About() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
-              À propos d'OmniCare
+              {t('about.hero.title')}
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              La première plateforme tunisienne de télémédecine et soins à la
-              demande, conçue pour rapprocher patients et professionnels de
-              santé.
+              {t('about.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -94,11 +87,11 @@ export function About() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#1FBF9A]/10 to-[#6BE3B2]/10 rounded-full mb-4">
               <Target className="w-5 h-5 text-[#1FBF9A]" />
               <span className="font-semibold text-[#1FBF9A]">
-                Notre mission
+                {t('about.mission.title')}
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-6">
-              Révolutionner l'accès aux soins en Tunisie
+              {t('about.mission.description')}
             </h2>
           </div>
 
@@ -234,10 +227,10 @@ export function About() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-4">
-              Nos valeurs
+              {t('about.values.title')}
             </h2>
             <p className="text-lg text-[#718096] max-w-2xl mx-auto">
-              Les principes qui guident chacune de nos actions
+              {t('about.vision.description')}
             </p>
           </div>
 
@@ -274,36 +267,30 @@ export function About() {
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#0F6F73]/10 rounded-full mb-4">
                 <span className="text-2xl">🇹🇳</span>
                 <span className="font-semibold text-[#0F6F73]">
-                  Made in Tunisia
+                  {t('about.focus.tunisia.title')}
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-6">
-                Une solution 100% tunisienne
+                {t('about.focus.tunisia.subtitle')}
               </h2>
               <p className="text-lg text-[#718096] mb-6 leading-relaxed">
-                OmniCare est conçue par des Tunisiens, pour les Tunisiens. Nous
-                comprenons les spécificités du système de santé tunisien, les
-                besoins locaux et les défis auxquels font face patients et
-                professionnels.
+                {t('about.focus.tunisia.description1')}
               </p>
               <p className="text-lg text-[#718096] mb-6 leading-relaxed">
-                Notre plateforme est adaptée au contexte tunisien : prise en
-                charge en français et en arabe, intégration avec les systèmes de
-                santé locaux, et partenariats avec les institutions médicales
-                tunisiennes.
+                {t('about.focus.tunisia.description2')}
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-[#F4F5F7] rounded-xl p-4">
                   <div className="text-3xl font-bold text-[#1FBF9A] mb-1">
                     24/7
                   </div>
-                  <div className="text-sm text-[#718096]">Disponibilité</div>
+                  <div className="text-sm text-[#718096]">{t('about.focus.tunisia.availability')}</div>
                 </div>
                 <div className="bg-[#F4F5F7] rounded-xl p-4">
                   <div className="text-3xl font-bold text-[#1FBF9A] mb-1">
                     100%
                   </div>
-                  <div className="text-sm text-[#718096]">Sécurisé</div>
+                  <div className="text-sm text-[#718096]">{t('about.focus.tunisia.secure')}</div>
                 </div>
               </div>
             </div>
@@ -324,11 +311,10 @@ export function About() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-4">
-              Pourquoi nous faire confiance ?
+              {t('about.values.trust.title')}
             </h2>
             <p className="text-lg text-[#718096] max-w-2xl mx-auto">
-              Des garanties solides pour votre sécurité et votre tranquillité
-              d'esprit
+              {t('about.values.trust.description')}
             </p>
           </div>
 
@@ -361,10 +347,10 @@ export function About() {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0F6F73] via-[#1FBF9A] to-[#6BE3B2]">
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Rejoignez le mouvement OmniCare
+            {t('professionals.hero.title')}
           </h2>
           <p className="text-xl mb-8 text-white/90 leading-relaxed">
-            Ensemble, construisons l'avenir de la santé en Tunisie
+            {t('home.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -372,14 +358,14 @@ export function About() {
               className="inline-block px-8 py-4 rounded-xl bg-white text-[#0F6F73] font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
               style={{ minWidth: "44px", minHeight: "44px" }}
             >
-              Pré-inscription professionnelle
+              {t('nav.preRegister')}
             </a>
             <a
               href="/contact"
               className="inline-block px-8 py-4 rounded-xl border-2 border-white text-white font-semibold transition-all duration-300 hover:bg-white hover:text-[#0F6F73]"
               style={{ minWidth: "44px", minHeight: "44px" }}
             >
-              Contactez-nous
+              {t('nav.contact')}
             </a>
           </div>
         </div>

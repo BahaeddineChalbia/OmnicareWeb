@@ -1,8 +1,10 @@
 import { Link } from 'react-router';
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import logoImage from '../../assets/app_logo.png';
 
 export function Footer() {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -22,7 +24,7 @@ export function Footer() {
               <span className="text-2xl font-bold">OmniCare</span>
             </Link>
             <p className="text-white/80 text-sm leading-relaxed mb-4">
-              Plateforme tunisienne de télémédecine et soins à la demande pour un accès facilité aux soins de santé.
+              {t('footer.description')}
             </p>
             
             {/* Social Media Links */}
@@ -59,31 +61,31 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Navigation</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('footer.navigation')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-white/80 hover:text-white transition-colors text-sm">
-                  Accueil
+                  {t('nav.home')}
                 </Link>
               </li>
               <li>
                 <Link to="/fonctionnalites" className="text-white/80 hover:text-white transition-colors text-sm">
-                  Fonctionnalités
+                  {t('nav.features')}
                 </Link>
               </li>
               <li>
                 <Link to="/professionnels" className="text-white/80 hover:text-white transition-colors text-sm">
-                  Professionnels
+                  {t('nav.professionals')}
                 </Link>
               </li>
               <li>
                 <Link to="/a-propos" className="text-white/80 hover:text-white transition-colors text-sm">
-                  À propos
+                  {t('nav.about')}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-white/80 hover:text-white transition-colors text-sm">
-                  Contact
+                  {t('nav.contact')}
                 </Link>
               </li>
             </ul>
@@ -91,16 +93,16 @@ export function Footer() {
 
           {/* Pour les Professionnels */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Professionnels</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('footer.professionalsSection')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/professionnels" className="text-white/80 hover:text-white transition-colors text-sm">
-                  Avantages
+                  {t('footer.advantages')}
                 </Link>
               </li>
               <li>
                 <Link to="/pre-inscription" className="text-white/80 hover:text-white transition-colors text-sm">
-                  Pré-inscription
+                  {t('nav.preRegister')}
                 </Link>
               </li>
             </ul>
@@ -108,7 +110,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('footer.contactSection')}</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <Mail size={18} className="mt-0.5 flex-shrink-0" />
@@ -135,18 +137,18 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col items-center md:items-start gap-2">
               <p className="text-white/70 text-sm">
-                © {currentYear} OmniCare. Tous droits réservés.
+                © {currentYear} OmniCare. {t('footer.rights')}
               </p>
               <p className="text-white/50 text-xs">
-                Powered by OmniLinks
+                {t('footer.poweredBy')}
               </p>
             </div>
             <div className="flex gap-6">
               <Link to="#" className="text-white/70 hover:text-white transition-colors text-sm">
-                Confidentialité
+                {t('footer.privacy')}
               </Link>
               <Link to="#" className="text-white/70 hover:text-white transition-colors text-sm">
-                Conditions d'utilisation
+                {t('footer.terms')}
               </Link>
             </div>
           </div>

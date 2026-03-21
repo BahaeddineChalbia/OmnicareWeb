@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import { 
   Stethoscope, 
   Syringe, 
@@ -19,31 +20,33 @@ import professionalImage from '../../assets/28fc02230563e1f2d34dd1e5166d4228df07
 import heroBackgroundImage from '../../assets/6c7b1377f77072f2a4d2b940684d817198c53b75.png';
 
 export function Home() {
+  const { t } = useTranslation();
+  
   const professions = [
-    { icon: Stethoscope, label: 'Médecin', emoji: '🩺' },
-    { icon: Syringe, label: 'Infirmier(e)', emoji: '💉' },
-    { icon: Brain, label: 'Psychologue', emoji: '🧠' },
-    { icon: Bone, label: 'Kinésithérapeute', emoji: '🦴' },
-    { icon: Ambulance, label: 'Ambulance', emoji: '🚑' },
+    { icon: Stethoscope, label: t('preInscription.doctor'), emoji: '🩺' },
+    { icon: Syringe, label: t('preInscription.nurse'), emoji: '💉' },
+    { icon: Brain, label: t('preInscription.psychologist'), emoji: '🧠' },
+    { icon: Bone, label: t('preInscription.physiotherapist'), emoji: '🦴' },
+    { icon: Ambulance, label: t('home.ambulance'), emoji: '🚑' },
   ];
 
   const steps = [
     {
       number: '01',
-      title: 'Créez votre compte',
-      description: 'Inscrivez-vous en quelques minutes avec vos informations de base.',
+      title: t('professionals.howItWorks.step1.title'),
+      description: t('professionals.howItWorks.step1.description'),
       icon: Users,
     },
     {
       number: '02',
-      title: 'Choisissez votre professionnel',
-      description: 'Parcourez les profils vérifiés et sélectionnez le professionnel adapté.',
+      title: t('professionals.howItWorks.step2.title'),
+      description: t('professionals.howItWorks.step2.description'),
       icon: Calendar,
     },
     {
       number: '03',
-      title: 'Recevez vos soins',
-      description: 'Consultez en ligne ou à domicile selon vos besoins.',
+      title: t('professionals.howItWorks.step3.title'),
+      description: t('professionals.howItWorks.step3.description'),
       icon: Video,
     },
   ];
@@ -51,33 +54,33 @@ export function Home() {
   const features = [
     {
       icon: Video,
-      title: 'Consultations vidéo',
-      description: 'Consultez des professionnels de santé depuis chez vous en toute sécurité.',
+      title: t('home.features.consultation.title'),
+      description: t('home.features.consultation.description'),
     },
     {
       icon: Calendar,
-      title: 'Prise de rendez-vous',
-      description: 'Réservez vos consultations en ligne 24h/24, 7j/7.',
+      title: t('home.features.appointment.title'),
+      description: t('home.features.appointment.description'),
     },
     {
       icon: FileText,
-      title: 'Dossier médical',
-      description: 'Accédez à votre historique médical centralisé et sécurisé.',
+      title: t('features.medicalRecords.title'),
+      description: t('features.medicalRecords.description'),
     },
     {
       icon: Shield,
-      title: 'Données sécurisées',
-      description: 'Vos informations de santé sont protégées avec le plus haut niveau de sécurité.',
+      title: t('home.features.secure.title'),
+      description: t('home.features.secure.description'),
     },
     {
       icon: Clock,
-      title: 'Disponibilité étendue',
-      description: 'Des professionnels disponibles aux horaires qui vous conviennent.',
+      title: t('home.stats.availability'),
+      description: t('home.features.professionals.description'),
     },
     {
       icon: Smartphone,
-      title: 'Application mobile',
-      description: 'Gérez vos soins de santé depuis votre smartphone (bientôt disponible).',
+      title: t('features.notifications.title'),
+      description: t('features.notifications.description'),
     },
   ];
 
@@ -105,14 +108,10 @@ export function Home() {
             className="text-center mb-12"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
-              Des soins médicaux <br className="hidden sm:block" />
-              <span className="text-[#6BE3B2]">
-                à la demande
-              </span>
+              {t('home.hero.title')}
             </h1>
             <p className="text-xl text-white/95 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Connectez-vous avec des professionnels de santé vérifiés en Tunisie. 
-              Consultations en ligne, soins à domicile, suivi médical personnalisé.
+              {t('home.hero.subtitle')}
             </p>
 
             {/* CTAs */}
@@ -122,7 +121,7 @@ export function Home() {
                 className="px-8 py-4 rounded-xl bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#1FBF9A]/30 hover:-translate-y-0.5 inline-block"
                 style={{ minWidth: '44px', minHeight: '44px' }}
               >
-                Rejoindre en tant que professionnel
+                {t('professionals.hero.title')}
               </Link>
             </div>
 
@@ -160,10 +159,10 @@ export function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-4">
-              Comment ça marche ?
+              {t('professionals.howItWorks.title')}
             </h2>
             <p className="text-lg text-[#718096] max-w-2xl mx-auto">
-              Trois étapes simples pour accéder à des soins de qualité
+              {t('home.hero.subtitle')}
             </p>
           </div>
 
@@ -196,10 +195,10 @@ export function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-4">
-              Fonctionnalités principales
+              {t('home.features.title')}
             </h2>
             <p className="text-lg text-[#718096] max-w-2xl mx-auto">
-              Une plateforme complète pour tous vos besoins de santé
+              {t('home.features.subtitle')}
             </p>
           </div>
 
@@ -230,17 +229,17 @@ export function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                Pour les professionnels
+                {t('footer.professionalsSection')}
               </h2>
               <p className="text-lg text-white/90 mb-8 leading-relaxed">
-                Développez votre pratique avec des outils modernes et une plateforme sécurisée.
+                {t('professionals.hero.subtitle')}
               </p>
               <ul className="space-y-4 mb-8">
                 {[
-                  'Gestion simplifiée de vos consultations',
-                  'Base de patients élargie',
-                  'Téléconsultation intégrée',
-                  'Paiements sécurisés',
+                  t('features.appointment.description'),
+                  t('professionals.benefits.patients.description'),
+                  t('features.videoConsultation.description'),
+                  t('features.payment.description'),
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <div className="w-6 h-6 rounded-full bg-[#1FBF9A] flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -257,7 +256,7 @@ export function Home() {
                 className="inline-block px-8 py-4 rounded-xl bg-white text-[#0F6F73] font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                 style={{ minWidth: '44px', minHeight: '44px' }}
               >
-                En savoir plus
+                {t('home.hero.learnMore')}
               </Link>
             </div>
             <div>
@@ -276,14 +275,14 @@ export function Home() {
         <div className="max-w-5xl mx-auto text-center">
           <Smartphone className="w-16 h-16 text-[#1FBF9A] mx-auto mb-6" />
           <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] mb-4">
-            Application mobile
+            {t('home.mobileApp.title')}
           </h2>
           <p className="text-lg text-[#718096] mb-8 max-w-2xl mx-auto leading-relaxed">
-            Gérez vos consultations et votre santé directement depuis votre smartphone.
+            {t('home.mobileApp.description')}
           </p>
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-[#F4F5F7] text-[#718096] rounded-xl">
             <Smartphone className="w-5 h-5" />
-            <span className="font-medium">Bientôt disponible sur App Store & Google Play</span>
+            <span className="font-medium">{t('home.mobileApp.comingSoon')}</span>
           </div>
         </div>
       </section>
@@ -292,17 +291,17 @@ export function Home() {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0F6F73] via-[#1FBF9A] to-[#6BE3B2]">
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Prêt à pré-rejoindre ?
+            {t('home.cta.title')}
           </h2>
           <p className="text-xl mb-8 text-white/90 leading-relaxed">
-            Rejoignez OmniCare dès aujourd'hui et profitez d'un accès facilité aux soins de santé.
+            {t('home.cta.subtitle')}
           </p>
           <Link
             to="/pre-inscription"
             className="inline-block px-8 py-4 rounded-xl bg-white text-[#0F6F73] font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
             style={{ minWidth: '44px', minHeight: '44px' }}
           >
-            Pré-inscrivez-vous maintenant
+            {t('nav.preRegister')}
           </Link>
         </div>
       </section>
