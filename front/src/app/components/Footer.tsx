@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import logoImage from '../../assets/app_logo.png';
 
 export function Footer() {
@@ -12,16 +12,49 @@ export function Footer() {
           {/* Logo & Description */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <img 
-                src={logoImage} 
-                alt="OmniCare Logo" 
-                className="w-10 h-10"
-              />
+              <div className="w-10 h-10 bg-white rounded-lg p-1 flex items-center justify-center">
+                <img 
+                  src={logoImage} 
+                  alt="OmniCare Logo" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
               <span className="text-2xl font-bold">OmniCare</span>
             </Link>
-            <p className="text-white/80 text-sm leading-relaxed">
+            <p className="text-white/80 text-sm leading-relaxed mb-4">
               Plateforme tunisienne de télémédecine et soins à la demande pour un accès facilité aux soins de santé.
             </p>
+            
+            {/* Social Media Links */}
+            <div className="flex gap-4">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61576014832405" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook size={20} />
+              </a>
+              <a 
+                href="https://www.instagram.com/omnilinks.tn/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+              <a 
+                href="https://www.linkedin.com/company/omnilinks-tn/posts/?feedView=all" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
+              </a>
+            </div>
           </div>
 
           {/* Navigation */}
@@ -85,8 +118,8 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <Phone size={18} className="mt-0.5 flex-shrink-0" />
-                <a href="tel:+21612345678" className="text-white/80 hover:text-white transition-colors text-sm">
-                  +216 12 345 678
+                <a href="tel:+21655618060" className="text-white/80 hover:text-white transition-colors text-sm">
+                  +216 55 618 060
                 </a>
               </li>
               <li className="flex items-start gap-2">
