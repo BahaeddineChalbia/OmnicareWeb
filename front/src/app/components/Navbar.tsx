@@ -65,11 +65,10 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <LanguageSwitcher />
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Button and Language Switcher */}
+          <div className="hidden md:flex items-center gap-3">
             <Link
               to="/pre-inscription"
               className="inline-block px-6 py-3 rounded-xl bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#1FBF9A]/30 hover:-translate-y-0.5"
@@ -77,6 +76,7 @@ export function Navbar() {
             >
               {t('nav.preRegister')}
             </Link>
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}

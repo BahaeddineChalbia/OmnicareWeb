@@ -18,6 +18,8 @@ import {
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import professionalImage from '../../assets/28fc02230563e1f2d34dd1e5166d4228df0706d1.png';
 import heroBackgroundImage from '../../assets/6c7b1377f77072f2a4d2b940684d817198c53b75.png';
+import appStoreLogo from '../../assets/App-Store-Logo-2020.png';
+import googlePlayLogo from '../../assets/Google-Play-Emblem.png';
 
 export function Home() {
   const { t } = useTranslation();
@@ -280,9 +282,35 @@ export function Home() {
           <p className="text-lg text-[#718096] mb-8 max-w-2xl mx-auto leading-relaxed">
             {t('home.mobileApp.description')}
           </p>
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-[#F4F5F7] text-[#718096] rounded-xl">
-            <Smartphone className="w-5 h-5" />
-            <span className="font-medium">{t('home.mobileApp.comingSoon')}</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8">
+            <div className="relative group cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative bg-white border-2 border-[#1FBF9A] text-[#1A202C] px-8 py-4 rounded-xl flex items-center gap-4 hover:bg-[#1FBF9A]/5 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <img 
+                  src={appStoreLogo} 
+                  alt="App Store" 
+                  className="w-10 h-10 object-contain"
+                />
+                <div className="text-left">
+                  <div className="text-xs text-[#718096]">{t('home.mobileApp.comingSoonAppStore')}</div>
+                  <div className="text-lg font-bold text-[#0F6F73]">App Store</div>
+                </div>
+              </div>
+            </div>
+            <div className="relative group cursor-pointer">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#1FBF9A] to-[#6BE3B2] rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative bg-white border-2 border-[#1FBF9A] text-[#1A202C] px-8 py-4 rounded-xl flex items-center gap-4 hover:bg-[#1FBF9A]/5 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <img 
+                  src={googlePlayLogo} 
+                  alt="Google Play" 
+                  className="w-10 h-10 object-contain"
+                />
+                <div className="text-left">
+                  <div className="text-xs text-[#718096]">{t('home.mobileApp.comingSoonGooglePlay')}</div>
+                  <div className="text-lg font-bold text-[#0F6F73]">Google Play</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

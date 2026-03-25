@@ -21,8 +21,8 @@
   },
   "home": {
     "hero": {
-      "title": "Your health, at your fingertips",
-      "subtitle": "Consult qualified healthcare professionals from home, 24/7",
+      "title": "On-demand medical care",
+      "subtitle": "Connect with verified healthcare professionals in Tunisia. Online consultations, home care, personalized medical follow-up.",
       "getStarted": "Get Started",
       "learnMore": "Learn More"
     },
@@ -60,7 +60,8 @@
     "mobileApp": {
       "title": "Mobile Application",
       "description": "Manage your consultations and health directly from your smartphone.",
-      "comingSoon": "Coming soon on App Store & Google Play"
+      "comingSoonAppStore": "Coming soon on",
+      "comingSoonGooglePlay": "Coming soon on"
     },
     "ambulance": "Ambulance"
   },
@@ -137,7 +138,7 @@
       }
     },
     "howItWorks": {
-      "title": "How does it work?",
+      "title": "Three simple steps to access quality care",
       "step1": {
         "title": "Sign up",
         "description": "Create your professional profile in minutes"
@@ -177,7 +178,7 @@
     },
     "mission": {
       "title": "Our Mission",
-      "description": "OmniCare was born from the desire to facilitate access to healthcare in Tunisia. We believe everyone should be able to consult a healthcare professional easily, wherever they are."
+      "description": "Revolutionizing access to healthcare in Tunisia"
     },
     "vision": {
       "title": "Our Vision",
@@ -185,6 +186,7 @@
     },
     "values": {
       "title": "Our Values",
+      "subtitle": "The principles that guide each of our actions",
       "quality": {
         "title": "Quality",
         "description": "Qualified professionals and impeccable service"

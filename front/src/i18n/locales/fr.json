@@ -21,8 +21,8 @@
   },
   "home": {
     "hero": {
-      "title": "Votre santé, à portée de main",
-      "subtitle": "Consultez des professionnels de santé qualifiés depuis chez vous, 24h/24 et 7j/7",
+      "title": "Des soins médicaux à la demande",
+      "subtitle": "Connectez-vous avec des professionnels de santé vérifiés en Tunisie. Consultations en ligne, soins à domicile, suivi médical personnalisé.",
       "getStarted": "Commencer",
       "learnMore": "En savoir plus"
     },
@@ -60,7 +60,8 @@
     "mobileApp": {
       "title": "Application mobile",
       "description": "Gérez vos consultations et votre santé directement depuis votre smartphone.",
-      "comingSoon": "Bientôt disponible sur App Store & Google Play"
+      "comingSoonAppStore": "Bientôt disponible sur",
+      "comingSoonGooglePlay": "Bientôt disponible sur"
     },
     "ambulance": "Ambulance"
   },
@@ -137,7 +138,7 @@
       }
     },
     "howItWorks": {
-      "title": "Comment ça marche ?",
+      "title": "Trois étapes simples pour accéder à des soins de qualité",
       "step1": {
         "title": "Inscrivez-vous",
         "description": "Créez votre profil professionnel en quelques minutes"
@@ -177,7 +178,7 @@
     },
     "mission": {
       "title": "Notre Mission",
-      "description": "OmniCare est née de la volonté de faciliter l'accès aux soins de santé en Tunisie. Nous croyons que chacun devrait pouvoir consulter un professionnel de santé facilement, où qu'il soit."
+      "description": "Révolutionner l'accès aux soins en Tunisie"
     },
     "vision": {
       "title": "Notre Vision",
@@ -185,6 +186,7 @@
     },
     "values": {
       "title": "Nos Valeurs",
+      "subtitle": "Les principes qui guident chacune de nos actions",
       "quality": {
         "title": "Qualité",
         "description": "Des professionnels qualifiés et un service irréprochable"

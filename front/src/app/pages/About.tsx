@@ -230,7 +230,7 @@ export function About() {
               {t('about.values.title')}
             </h2>
             <p className="text-lg text-[#718096] max-w-2xl mx-auto">
-              {t('about.vision.description')}
+              {t('about.values.subtitle')}
             </p>
           </div>
 
