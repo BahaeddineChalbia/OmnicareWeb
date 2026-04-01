@@ -133,22 +133,29 @@ export function Home() {
                 <motion.div
                   key={prof.label}
                   initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ 
-                    duration: 0.4, 
-                    delay: 0.8 + idx * 0.1,
-                    type: "spring",
-                    stiffness: 200
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    transition: {
+                      duration: 0.4,
+                      delay: 0.8 + idx * 0.1,
+                      type: 'spring',
+                      stiffness: 200,
+                    },
                   }}
-                  whileHover={{ 
-                    scale: 1.1, 
-                    y: -5,
-                    transition: { duration: 0.2 }
-                  }}
-                  className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200 cursor-pointer"
+                  className="will-change-transform"
                 >
-                  <span className="text-xl">{prof.emoji}</span>
-                  <span className="text-sm font-medium text-[#718096]">{prof.label}</span>
+                  <motion.div
+                    whileHover={{
+                      scale: 1.06,
+                      y: -5,
+                    }}
+                    transition={{ duration: 0.1, ease: 'easeOut' }}
+                    className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200 cursor-pointer will-change-transform"
+                  >
+                    <span className="text-xl">{prof.emoji}</span>
+                    <span className="text-sm font-medium text-[#718096]">{prof.label}</span>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
@@ -229,7 +236,12 @@ export function Home() {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0F6F73] text-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.6 }}
+            >
               <h2 className="text-3xl sm:text-4xl font-bold mb-6">
                 {t('footer.professionalsSection')}
               </h2>
@@ -242,15 +254,22 @@ export function Home() {
                   t('professionals.benefits.patients.description'),
                   t('features.videoConsultation.description'),
                   t('features.payment.description'),
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
+                ].map((item, idx) => (
+                  <motion.li
+                    key={item}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.25 }}
+                    transition={{ duration: 0.4, delay: 0.1 + idx * 0.1 }}
+                    className="flex items-start gap-3"
+                  >
                     <div className="w-6 h-6 rounded-full bg-[#1FBF9A] flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
                     <span className="text-white/90">{item}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
               <Link
@@ -260,14 +279,21 @@ export function Home() {
               >
                 {t('home.hero.learnMore')}
               </Link>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 40, scale: 0.96 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              whileHover={{ y: -6, scale: 1.01 }}
+              className="will-change-transform"
+            >
               <ImageWithFallback
                 src={professionalImage}
                 alt="Professionnel de santé avec stéthoscope"
                 className="w-full h-auto object-cover rounded-3xl shadow-xl"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

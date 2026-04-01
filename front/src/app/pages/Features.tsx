@@ -329,28 +329,32 @@ export function Features() {
                       <motion.div
                         key={feature.title}
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: idx * 0.08 }}
-                        whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.2 } }}
-                        className="group/card p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                        animate={{ opacity: 1, y: 0, transition: { duration: 0.3, delay: idx * 0.08 } }}
+                        className="h-full will-change-transform"
                       >
                         <motion.div
-                          className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1FBF9A] to-[#6BE3B2] flex items-center justify-center mb-4 shadow-lg mx-auto"
-                          whileHover={{
-                            rotate: 360,
-                            transition: { duration: 0.6 }
-                          }}
+                          whileHover={{ scale: 1.05, y: -8 }}
+                          transition={{ duration: 0.12, ease: 'easeOut' }}
+                          className="group/card h-full min-h-[240px] p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col"
                         >
-                          <feature.icon className="w-8 h-8 text-white" />
+                          <motion.div
+                            className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1FBF9A] to-[#6BE3B2] flex items-center justify-center mb-4 shadow-lg mx-auto"
+                            whileHover={{
+                              rotate: 360,
+                              transition: { duration: 0.6 }
+                            }}
+                          >
+                            <feature.icon className="w-8 h-8 text-white" />
+                          </motion.div>
+                          <div className="text-center flex flex-col flex-1">
+                            <h4 className="font-bold text-[#1A202C] mb-2 group-hover/card:text-[#1FBF9A] transition-colors duration-300 text-lg">
+                              {feature.title}
+                            </h4>
+                            <p className="text-sm text-[#718096] leading-relaxed flex-1">
+                              {feature.description}
+                            </p>
+                          </div>
                         </motion.div>
-                        <div className="text-center">
-                          <h4 className="font-bold text-[#1A202C] mb-2 group-hover/card:text-[#1FBF9A] transition-colors duration-300 text-lg">
-                            {feature.title}
-                          </h4>
-                          <p className="text-sm text-[#718096] leading-relaxed">
-                            {feature.description}
-                          </p>
-                        </div>
                       </motion.div>
                     ))}
                   </div>
@@ -362,28 +366,32 @@ export function Features() {
                         <motion.div
                           key={feature.title}
                           initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.3, delay: idx * 0.08 }}
-                          whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.2 } }}
-                          className="group/card flex-shrink-0 w-[280px] sm:w-[320px] p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                          animate={{ opacity: 1, y: 0, transition: { duration: 0.3, delay: idx * 0.08 } }}
+                          className="h-full will-change-transform"
                         >
                           <motion.div
-                            className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-[#1FBF9A] to-[#6BE3B2] flex items-center justify-center mb-4 shadow-lg mx-auto"
-                            whileHover={{
-                              rotate: 360,
-                              transition: { duration: 0.6 }
-                            }}
+                            whileHover={{ scale: 1.05, y: -8 }}
+                            transition={{ duration: 0.12, ease: 'easeOut' }}
+                            className="group/card flex-shrink-0 w-[280px] sm:w-[320px] min-h-[230px] p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col"
                           >
-                            <feature.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                            <motion.div
+                              className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-[#1FBF9A] to-[#6BE3B2] flex items-center justify-center mb-4 shadow-lg mx-auto"
+                              whileHover={{
+                                rotate: 360,
+                                transition: { duration: 0.6 }
+                              }}
+                            >
+                              <feature.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                            </motion.div>
+                            <div className="text-center flex flex-col flex-1">
+                              <h4 className="font-bold text-[#1A202C] mb-2 group-hover/card:text-[#1FBF9A] transition-colors duration-300 text-base sm:text-lg">
+                                {feature.title}
+                              </h4>
+                              <p className="text-sm text-[#718096] leading-relaxed flex-1">
+                                {feature.description}
+                              </p>
+                            </div>
                           </motion.div>
-                          <div className="text-center">
-                            <h4 className="font-bold text-[#1A202C] mb-2 group-hover/card:text-[#1FBF9A] transition-colors duration-300 text-base sm:text-lg">
-                              {feature.title}
-                            </h4>
-                            <p className="text-sm text-[#718096] leading-relaxed">
-                              {feature.description}
-                            </p>
-                          </div>
                         </motion.div>
                       ))}
                     </div>
@@ -434,28 +442,32 @@ export function Features() {
                       <motion.div
                         key={feature.title}
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: idx * 0.08 }}
-                        whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.2 } }}
-                        className="group/card p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                        animate={{ opacity: 1, y: 0, transition: { duration: 0.3, delay: idx * 0.08 } }}
+                        className="h-full will-change-transform"
                       >
                         <motion.div
-                          className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#0F6F73] to-[#1FBF9A] flex items-center justify-center mb-4 shadow-lg mx-auto"
-                          whileHover={{
-                            rotate: -360,
-                            transition: { duration: 0.6 }
-                          }}
+                          whileHover={{ scale: 1.05, y: -8 }}
+                          transition={{ duration: 0.12, ease: 'easeOut' }}
+                          className="group/card h-full min-h-[240px] p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col"
                         >
-                          <feature.icon className="w-8 h-8 text-white" />
+                          <motion.div
+                            className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#0F6F73] to-[#1FBF9A] flex items-center justify-center mb-4 shadow-lg mx-auto"
+                            whileHover={{
+                              rotate: -360,
+                              transition: { duration: 0.6 }
+                            }}
+                          >
+                            <feature.icon className="w-8 h-8 text-white" />
+                          </motion.div>
+                          <div className="text-center flex flex-col flex-1">
+                            <h4 className="font-bold text-[#1A202C] mb-2 group-hover/card:text-[#0F6F73] transition-colors duration-300 text-lg">
+                              {feature.title}
+                            </h4>
+                            <p className="text-sm text-[#718096] leading-relaxed flex-1">
+                              {feature.description}
+                            </p>
+                          </div>
                         </motion.div>
-                        <div className="text-center">
-                          <h4 className="font-bold text-[#1A202C] mb-2 group-hover/card:text-[#0F6F73] transition-colors duration-300 text-lg">
-                            {feature.title}
-                          </h4>
-                          <p className="text-sm text-[#718096] leading-relaxed">
-                            {feature.description}
-                          </p>
-                        </div>
                       </motion.div>
                     ))}
                   </div>
@@ -467,28 +479,32 @@ export function Features() {
                         <motion.div
                           key={feature.title}
                           initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.3, delay: idx * 0.08 }}
-                          whileHover={{ scale: 1.05, y: -8, transition: { duration: 0.2 } }}
-                          className="group/card flex-shrink-0 w-[280px] sm:w-[320px] p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                          animate={{ opacity: 1, y: 0, transition: { duration: 0.3, delay: idx * 0.08 } }}
+                          className="h-full will-change-transform"
                         >
                           <motion.div
-                            className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-[#0F6F73] to-[#1FBF9A] flex items-center justify-center mb-4 shadow-lg mx-auto"
-                            whileHover={{
-                              rotate: -360,
-                              transition: { duration: 0.6 }
-                            }}
+                            whileHover={{ scale: 1.05, y: -8 }}
+                            transition={{ duration: 0.12, ease: 'easeOut' }}
+                            className="group/card flex-shrink-0 w-[280px] sm:w-[320px] min-h-[230px] p-6 bg-white/95 backdrop-blur-sm rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col"
                           >
-                            <feature.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                            <motion.div
+                              className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-[#0F6F73] to-[#1FBF9A] flex items-center justify-center mb-4 shadow-lg mx-auto"
+                              whileHover={{
+                                rotate: -360,
+                                transition: { duration: 0.6 }
+                              }}
+                            >
+                              <feature.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                            </motion.div>
+                            <div className="text-center flex flex-col flex-1">
+                              <h4 className="font-bold text-[#1A202C] mb-2 group-hover/card:text-[#0F6F73] transition-colors duration-300 text-base sm:text-lg">
+                                {feature.title}
+                              </h4>
+                              <p className="text-sm text-[#718096] leading-relaxed flex-1">
+                                {feature.description}
+                              </p>
+                            </div>
                           </motion.div>
-                          <div className="text-center">
-                            <h4 className="font-bold text-[#1A202C] mb-2 group-hover/card:text-[#0F6F73] transition-colors duration-300 text-base sm:text-lg">
-                              {feature.title}
-                            </h4>
-                            <p className="text-sm text-[#718096] leading-relaxed">
-                              {feature.description}
-                            </p>
-                          </div>
                         </motion.div>
                       ))}
                     </div>
